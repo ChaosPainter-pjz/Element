@@ -12,6 +12,9 @@ public class Hero : MonoBehaviour
     /// </summary>
     public UnitState CurUnitState { get; protected set; } = UnitState.Idle;
 
+    /// <summary>
+    /// 阵营
+    /// </summary>
     public Camp m_camp;
 
     public Hero m_attackTarget;
@@ -38,8 +41,8 @@ public class Hero : MonoBehaviour
                 if (BattleManager.Instance.TryGetEnemy(this, out m_attackTarget))
                 {
                     SetCurUnitState(UnitState.Move);
+                    Debug.Log($"{name}找到敌人{m_attackTarget.name}");
                 }
-
                 break;
             case UnitState.Move:
                 if (m_attackTarget)
@@ -84,10 +87,16 @@ public class Hero : MonoBehaviour
         if (other.gameObject.TryGetComponent<Hero>(out var otherHero))
         {
             Debug.Log($"碰撞了：{otherHero.name} normal:{other.GetContact(0).normal}");
-            otherHero.m_rigidbody.AddForce((otherHero.transform.position - transform.position).normalized * 20, ForceMode.Impulse);
-            otherHero.BeAttacked(1);
-            otherHero.SetCurUnitState(UnitState.BeatBack);
+            AttackTarget(otherHero);
+
         }
+    }
+
+    virtual public void AttackTarget(Hero target)
+    {
+        target.m_rigidbody.AddForce((target.transform.position - transform.position).normalized * m_heroData.m_impactForce, ForceMode.Impulse);
+        target.BeAttacked(m_heroData.m_attack);
+        target.SetCurUnitState(UnitState.BeatBack);
     }
 
     /// <summary>

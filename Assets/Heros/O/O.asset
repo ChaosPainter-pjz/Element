@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_id: 0
   m_maxHp: 170
-  m_name: 
-  m_speed: 50
+  m_name: "\u6C27"
+  m_speed: 100
   m_attackRangedType: 0
   m_attackRanged: 8
+  m_attack: 1
+  m_impactForce: 6

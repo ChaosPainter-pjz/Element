@@ -95,11 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 0}
-  m_heroData: {fileID: 0}
+  m_heroData: {fileID: 11400000, guid: dd2fcb681ef5b8441bf74e75b26dc475, type: 2}
   m_camp: 0
   m_attackTarget: {fileID: 0}
   m_hp: 10
-  m_maxHp: 10
 --- !u!54 &4160089891153112407
 Rigidbody:
   m_ObjectHideFlags: 0

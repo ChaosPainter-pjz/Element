@@ -170,7 +170,6 @@ MonoBehaviour:
   m_camp: 1
   m_attackTarget: {fileID: 0}
   m_hp: 5
-  m_maxHp: 10
 --- !u!54 &2865151513284834480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -181,7 +180,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 10
-  m_AngularDrag: 10
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

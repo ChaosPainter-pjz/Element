@@ -17,7 +17,7 @@ namespace Game
         void Start()
         {
             GenerateAHero(0, Camp.Blue, 0);
-            GenerateAHero(1, Camp.Red, 0);
+            GenerateAHero(2, Camp.Red, 0);
         }
         /// <summary>
         /// 生成一个英雄单位

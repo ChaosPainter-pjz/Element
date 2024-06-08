@@ -52,7 +52,6 @@ MonoBehaviour:
   m_camp: 0
   m_attackTarget: {fileID: 0}
   m_hp: 10
-  m_maxHp: 10
 --- !u!54 &4160089891153112407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,7 +179,7 @@ SphereCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5

@@ -14,4 +14,13 @@ public class HeroData : ScriptableObject
     /// 攻击范围，仅远程有效
     /// </summary>
     public int m_attackRanged = 8;
+    /// <summary>
+    /// 攻击力
+    /// </summary>
+    public int m_attack = 1;
+    /// <summary>
+    /// 攻击时的冲击力
+    /// </summary>
+    public int m_impactForce = 0;
+
 }
