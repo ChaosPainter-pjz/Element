@@ -710,6 +710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISystem
       objectReference: {fileID: 0}
+    - target: {fileID: 110699406077859141, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 44.363
+      objectReference: {fileID: 0}
     - target: {fileID: 1531315845567789369, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -754,8 +758,21 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 6042391923298643577, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042391923298643577, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042391923298643577, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1035318453987863925, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
