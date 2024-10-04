@@ -8,12 +8,6 @@ namespace Game
     {
         public HeroesPrefab HeroesPrefab;
 
-        protected override void Awake()
-        {
-            base.Awake();
-
-        }
-
         void Start()
         {
             GenerateAHero(0, Camp.Blue, 0);
@@ -34,7 +28,7 @@ namespace Game
                 : SceneManager.Instance.PointOfBirth.red[index].position;
             var obj = Instantiate(pair.Value, position, Quaternion.identity);
             var hero = obj.GetComponent<Hero>();
-            hero.m_camp = camp;
+            hero.Camp = camp;
             BattleManager.Instance.AddHero(hero);
 
         }

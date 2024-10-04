@@ -1,26 +1,29 @@
 ﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-
-[CreateAssetMenu(fileName = "ScriptableObject", menuName = "HeroData", order = 0)]
+/// <summary>
+/// 元素的固有属性值
+/// </summary>
+[CreateAssetMenu(fileName = "HeroData", menuName = "ScriptableObject/HeroData", order = 0)]
 public class HeroData : ScriptableObject
 {
-    public int m_id;
-    public int m_maxHp;
-    public string m_name;
+    [FormerlySerializedAs("m_id")] public int Id;
+    [FormerlySerializedAs("m_maxHp")] public int MaxHp;
+    public string MasuriumName;
+    [FormerlySerializedAs("m_name")] public string Name;
     public int m_speed = 50;
-    public AttackRangedType m_attackRangedType;
+    [FormerlySerializedAs("m_attackRangedType")] public AttackRangedType AttackRangedType;
     /// <summary>
     /// 攻击范围，仅远程有效
     /// </summary>
-    public int m_attackRanged = 8;
+    [FormerlySerializedAs("m_attackRanged")] public int AttackRanged = 8;
     /// <summary>
     /// 攻击力
     /// </summary>
-    public int m_attack = 1;
+    [FormerlySerializedAs("m_attack")] public int Attack = 1;
     /// <summary>
     /// 攻击时的冲击力
     /// </summary>
-    public int m_impactForce = 0;
+    [FormerlySerializedAs("m_impactForce")] public int ImpactForce = 0;
 
 }

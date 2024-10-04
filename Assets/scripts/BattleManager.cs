@@ -19,7 +19,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
 
     public void AddHero(Hero hero)
     {
-        if (hero.m_camp == Camp.Blue)
+        if (hero.Camp == Camp.Blue)
         {
             _blueHeroes.Add(hero);
         }
@@ -38,7 +38,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
         enemy = null;
         float minDistance = float.MaxValue;
         Vector3 heroPosition = hero.transform.position;
-        switch (hero.m_camp)
+        switch (hero.Camp)
         {
             case Camp.Blue:
                 foreach (var redHero in _redHeroes)

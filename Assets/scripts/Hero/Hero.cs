@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class Hero : MonoBehaviour
 {
-    [HideInInspector] public Rigidbody m_rigidbody;
+    [HideInInspector] public Rigidbody Rigidbody;
     [SerializeField] private HeroData m_heroData;
+
+    public HeroData HeroData => m_heroData;
 
     /// <summary>
     /// 当前状态
@@ -15,44 +18,46 @@ public class Hero : MonoBehaviour
     /// <summary>
     /// 阵营
     /// </summary>
-    public Camp m_camp;
+    [FormerlySerializedAs("m_camp")] public Camp Camp;
 
-    public Hero m_attackTarget;
+    [FormerlySerializedAs("m_attackTarget")] public Hero Target;
 
-    public float m_hp = 5;
-    public float MaxHp => m_heroData.m_maxHp;
+    public float CurHp = 5;
+    public float MaxHp => m_heroData.MaxHp;
 
     void Start()
     {
-        m_rigidbody = GetComponent<Rigidbody>();
+        Rigidbody = GetComponent<Rigidbody>();
+
+        CurHp = HeroData.MaxHp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_attackTarget && m_attackTarget.CurUnitState == UnitState.Die)
+        if (Target && Target.CurUnitState == UnitState.Die)
         {
-            m_attackTarget = null;
+            Target = null;
         }
 
         switch (CurUnitState)
         {
             case UnitState.Idle:
-                if (BattleManager.Instance.TryGetEnemy(this, out m_attackTarget))
+                if (BattleManager.Instance.TryGetEnemy(this, out Target))
                 {
                     SetCurUnitState(UnitState.Move);
-                    Debug.Log($"{name}找到敌人{m_attackTarget.name}");
+                    Debug.Log($"{name}找到敌人{Target.name}");
                 }
                 break;
             case UnitState.Move:
-                if (m_attackTarget)
+                if (Target)
                 {
-                    MoveTo(m_attackTarget.transform.position);
+                    MoveTo(Target.transform.position);
                 }
 
                 break;
             case UnitState.BeatBack:
-                if (m_rigidbody.velocity.magnitude < 0.05f)
+                if (Rigidbody.velocity.magnitude < 0.05f)
                 {
                     SetCurUnitState(UnitState.Idle);
                 }
@@ -79,7 +84,7 @@ public class Hero : MonoBehaviour
         var position = transform.position;
         Vector3 moveDir = (newPosition - position).normalized;
         //rigidbody.MovePosition(position + moveDir * (Time.deltaTime * 10));
-        m_rigidbody.AddForce(moveDir * (Time.deltaTime * m_heroData.m_speed), ForceMode.VelocityChange);
+        Rigidbody.AddForce(moveDir * (Time.deltaTime * m_heroData.m_speed), ForceMode.VelocityChange);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -94,8 +99,8 @@ public class Hero : MonoBehaviour
 
     virtual public void AttackTarget(Hero target)
     {
-        target.m_rigidbody.AddForce((target.transform.position - transform.position).normalized * m_heroData.m_impactForce, ForceMode.Impulse);
-        target.BeAttacked(m_heroData.m_attack);
+        target.Rigidbody.AddForce((target.transform.position - transform.position).normalized * m_heroData.ImpactForce, ForceMode.Impulse);
+        target.BeAttacked(m_heroData.Attack);
         target.SetCurUnitState(UnitState.BeatBack);
     }
 
@@ -105,14 +110,14 @@ public class Hero : MonoBehaviour
     /// <returns>是否还活着</returns>
     public bool BeAttacked(float attackNumber)
     {
-        if (m_hp < attackNumber)
+        if (CurHp < attackNumber)
         {
-            m_hp = 0;
+            CurHp = 0;
             CurUnitState = UnitState.Die;
             return false;
         }
 
-        m_hp -= attackNumber;
+        CurHp -= attackNumber;
         return true;
     }
 }

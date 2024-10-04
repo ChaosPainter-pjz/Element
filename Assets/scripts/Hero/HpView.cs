@@ -19,7 +19,7 @@ public class HpView : MonoBehaviour
     {
         if (hero)
         {
-            material.SetFloat(Value, hero.m_hp / hero.MaxHp);
+            material.SetFloat(Value, hero.CurHp / hero.MaxHp);
         }
     }
 }
