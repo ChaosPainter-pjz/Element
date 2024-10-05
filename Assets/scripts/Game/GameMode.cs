@@ -7,11 +7,21 @@ namespace Game
     public class GameMode : SingletonMonoBase<GameMode>
     {
         public HeroesPrefab HeroesPrefab;
+        [SerializeField] private BattleConfig m_battleConfig;
 
         void Start()
         {
-            GenerateAHero(0, Camp.Blue, 0);
-            GenerateAHero(2, Camp.Red, 0);
+            for (var i = 0; i < m_battleConfig.BlueHeroes.Count; i++)
+            {
+                var hero = m_battleConfig.BlueHeroes[i];
+                GenerateAHero(hero.Id, Camp.Blue, i);
+            }
+
+            for (var i = 0; i < m_battleConfig.RedHeroes.Count; i++)
+            {
+                var hero = m_battleConfig.RedHeroes[i];
+                GenerateAHero(hero.Id, Camp.Red, i);
+            }
         }
         /// <summary>
         /// 生成一个英雄单位
@@ -22,7 +32,7 @@ namespace Game
         public void GenerateAHero(int key, Camp camp,int index)
         {
 
-            var pair = HeroesPrefab.Heroes.Find(x => x.Key == key);
+            var pair = HeroesPrefab.Heroes.Find(x => x.Id == key);
             var position = camp == Camp.Blue
                 ? SceneManager.Instance.PointOfBirth.blue[index].position
                 : SceneManager.Instance.PointOfBirth.red[index].position;

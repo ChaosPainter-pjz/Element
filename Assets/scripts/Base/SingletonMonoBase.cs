@@ -8,16 +8,12 @@ namespace Base
 
         protected virtual void Awake()
         {
-
             if (Instance != null)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                Instance = this as T;
+                Destroy(Instance);
             }
 
+            Instance = this as T;
         }
     }
 }

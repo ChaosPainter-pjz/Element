@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123178460}
+  - component: {fileID: 123178461}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -156,6 +157,19 @@ Transform:
   - {fileID: 1872902358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123178461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123178459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1252e6423013a03418b9e9fb4b133c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointOfBirth: {fileID: 263432731}
 --- !u!4 &263432730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6992884932051030535, guid: 5245b0f7c1a9d7c48913b15c0c1b0ecc, type: 3}
@@ -612,18 +626,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6797371968708609502, guid: 6d99c708012d682409c6f44313870a50, type: 3}
-      propertyPath: PointOfBirth
-      value: 
-      objectReference: {fileID: 263432731}
     - target: {fileID: 7113753018970480743, guid: 6d99c708012d682409c6f44313870a50, type: 3}
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 8978496598304267002, guid: 6d99c708012d682409c6f44313870a50, type: 3}
-      propertyPath: PointOfBirth
-      value: 
-      objectReference: {fileID: 263432731}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -709,6 +715,10 @@ PrefabInstance:
     - target: {fileID: 34129256267175877, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
       propertyPath: m_Name
       value: UISystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 502694575598590879, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 72.54907
       objectReference: {fileID: 0}
     - target: {fileID: 1531315845567789369, guid: 1ce55627795ba9249bf69f0c03fa39c8, type: 3}
       propertyPath: m_LocalPosition.x

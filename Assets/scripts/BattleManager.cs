@@ -2,30 +2,22 @@ using System;
 using System.Collections.Generic;
 using Base;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BattleManager : SingletonMonoBase<BattleManager>
 {
-    private readonly HashSet<Hero> _blueHeroes = new HashSet<Hero>();
-    private readonly HashSet<Hero> _redHeroes = new HashSet<Hero>();
-
-    protected override void Awake()
-    {
-        base.Awake();
-        foreach (var hero in FindObjectsOfType<Hero>())
-        {
-            AddHero(hero);
-        }
-    }
+    private readonly HashSet<Hero> blueHeroes = new();
+    private readonly HashSet<Hero> redHeroes = new();
 
     public void AddHero(Hero hero)
     {
         if (hero.Camp == Camp.Blue)
         {
-            _blueHeroes.Add(hero);
+            blueHeroes.Add(hero);
         }
         else
         {
-            _redHeroes.Add(hero);
+            redHeroes.Add(hero);
         }
     }
 
@@ -41,7 +33,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
         switch (hero.Camp)
         {
             case Camp.Blue:
-                foreach (var redHero in _redHeroes)
+                foreach (var redHero in redHeroes)
                 {
                     if (redHero.CurUnitState == UnitState.Die)
                     {
@@ -57,7 +49,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
 
                 return enemy;
             case Camp.Red:
-                foreach (var blueHero in _blueHeroes)
+                foreach (var blueHero in blueHeroes)
                 {
                     if (blueHero.CurUnitState == UnitState.Die)
                     {

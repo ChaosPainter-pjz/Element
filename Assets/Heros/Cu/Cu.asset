@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439d4c46bd8845048cef0a8a5f2eb35d, type: 3}
   m_Name: Cu
   m_EditorClassIdentifier: 
-  m_id: 0
-  m_maxHp: 300
-  m_name: "\u94DC"
+  Id: 29
+  MaxHp: 300
+  MasuriumName: Cu
+  Name: "\u94DC"
   m_speed: 50
-  m_attackRangedType: 0
-  m_attackRanged: 8
-  m_attack: 1
-  m_impactForce: 20
+  AttackRangedType: 0
+  AttackRanged: 8
+  Attack: 1
+  ImpactForce: 20

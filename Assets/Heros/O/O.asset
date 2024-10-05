@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439d4c46bd8845048cef0a8a5f2eb35d, type: 3}
   m_Name: O
   m_EditorClassIdentifier: 
-  m_id: 0
-  m_maxHp: 170
-  m_name: "\u6C27"
+  Id: 8
+  MaxHp: 170
+  MasuriumName: 
+  Name: "\u6C27"
   m_speed: 100
-  m_attackRangedType: 0
-  m_attackRanged: 8
-  m_attack: 1
-  m_impactForce: 6
+  AttackRangedType: 0
+  AttackRanged: 8
+  Attack: 1
+  ImpactForce: 6

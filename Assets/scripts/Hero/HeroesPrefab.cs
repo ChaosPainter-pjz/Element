@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(fileName = "HeroesPrefab", menuName = "ScriptableObject/HeroesPrefab", order = 0)]
@@ -12,6 +13,6 @@ public class HeroesPrefab : ScriptableObject
 [Serializable]
 public struct HeroKeyValuePair
 {
-    public int Key;
+    [FormerlySerializedAs("Key")] public int Id;
     public GameObject Value;
 }

@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f23e1891804fac8c323b203ceddeb0, type: 3}
   m_Name: BattleConfig
   m_EditorClassIdentifier: 
+  BlueHeroes:
+  - {fileID: 11400000, guid: dd2fcb681ef5b8441bf74e75b26dc475, type: 2}
+  RedHeroes:
+  - {fileID: 11400000, guid: d186db7f46f37cf49b8e95921bc582f3, type: 2}
