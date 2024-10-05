@@ -11,6 +11,8 @@ public class BattleManager : SingletonMonoBase<BattleManager>
 
     public HashSet<Hero> BlueHeroes => blueHeroes;
 
+    public HashSet<Hero> RedHeroes => redHeroes;
+
     public void AddHero(Hero hero)
     {
         if (hero.Camp == Camp.Blue)
@@ -19,7 +21,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
         }
         else
         {
-            redHeroes.Add(hero);
+            RedHeroes.Add(hero);
         }
     }
 
@@ -35,7 +37,7 @@ public class BattleManager : SingletonMonoBase<BattleManager>
         switch (hero.Camp)
         {
             case Camp.Blue:
-                foreach (var redHero in redHeroes)
+                foreach (var redHero in RedHeroes)
                 {
                     if (redHero.CurUnitState == UnitState.Die)
                     {

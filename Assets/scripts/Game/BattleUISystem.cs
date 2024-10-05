@@ -13,6 +13,8 @@ public class BattleUISystem : MonoBehaviour
     [SerializeField]
     private Transform m_units;
     [SerializeField]
+    private BossHpUI m_bossHpUI;
+    [SerializeField]
     private GameMode m_gameMode;
     // Start is called before the first frame update
     private void Awake()
@@ -22,8 +24,9 @@ public class BattleUISystem : MonoBehaviour
 
     private void OnBattleStart()
     {
+        //我方单位血条
         CharacterUIController[] units = m_units.GetComponentsInChildren<CharacterUIController>();
-        Hero[] blueHeroes =BattleManager.Instance.BlueHeroes.ToArray();
+        Hero[] blueHeroes = BattleManager.Instance.BlueHeroes.ToArray();
         int lenght = Mathf.Min(units.Length, blueHeroes.Length);
         for (int i = 0; i < lenght; i++)
         {
@@ -34,5 +37,25 @@ public class BattleUISystem : MonoBehaviour
         {
             units[i].Init(null);
         }
+        //boss 血条
+        if (BattleManager.Instance.RedHeroes.Count > 0)
+        {
+            float maxHp = 0;
+            Hero target = null;
+            foreach (var hero in BattleManager.Instance.RedHeroes)
+            {
+                if (hero.CurHp>maxHp)
+                {
+                    maxHp = hero.CurHp;
+                    target = hero;
+                }
+            }
+            m_bossHpUI.Init(target);
+        }
+        else
+        {
+            m_bossHpUI.gameObject.SetActive(false);
+        }
+
     }
 }
