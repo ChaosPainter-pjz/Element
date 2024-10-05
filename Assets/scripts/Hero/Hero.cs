@@ -23,13 +23,26 @@ public class Hero : MonoBehaviour
     [FormerlySerializedAs("m_attackTarget")] public Hero Target;
 
     public float CurHp = 5;
-    public float MaxHp => m_heroData.MaxHp;
+    public float MaxHp = 1;
 
+    public void Init()
+    {
+        MaxHp = HeroData.MaxHp;
+        CurHp = HeroData.MaxHp;
+        CurUnitState = UnitState.Idle;
+        Target = null;
+    }
+
+    public void Init(HeroData heroData)
+    {
+        m_heroData = heroData;
+        Init();
+    }
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody>();
 
-        CurHp = HeroData.MaxHp;
+
     }
 
     // Update is called once per frame

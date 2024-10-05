@@ -19,5 +19,5 @@ MonoBehaviour:
   m_speed: 100
   AttackRangedType: 0
   AttackRanged: 8
-  Attack: 1
+  Attack: 20
   ImpactForce: 6

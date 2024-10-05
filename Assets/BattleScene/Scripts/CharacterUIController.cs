@@ -12,7 +12,7 @@ public class CharacterUIController : MonoBehaviour
     private bool isInitialized = false;
     [SerializeField] private Scrollbar m_hp;
     private Hero CurrentHero = null;
-    void Init(Hero hero)
+    public void Init(Hero hero)
     {
         if (hero)
         {

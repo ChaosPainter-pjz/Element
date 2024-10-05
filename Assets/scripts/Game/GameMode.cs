@@ -1,6 +1,7 @@
 using Base;
 using Scene;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
@@ -8,7 +9,7 @@ namespace Game
     {
         public HeroesPrefab HeroesPrefab;
         [SerializeField] private BattleConfig m_battleConfig;
-
+        public event UnityAction OnBattleStart;
         void Start()
         {
             for (var i = 0; i < m_battleConfig.BlueHeroes.Count; i++)
@@ -22,6 +23,8 @@ namespace Game
                 var hero = m_battleConfig.RedHeroes[i];
                 GenerateAHero(hero.Id, Camp.Red, i);
             }
+
+            OnBattleStart?.Invoke();
         }
         /// <summary>
         /// 生成一个英雄单位
@@ -39,6 +42,7 @@ namespace Game
             var obj = Instantiate(pair.Value, position, Quaternion.identity);
             var hero = obj.GetComponent<Hero>();
             hero.Camp = camp;
+            hero.Init();
             BattleManager.Instance.AddHero(hero);
 
         }
