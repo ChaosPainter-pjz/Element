@@ -5,13 +5,13 @@ using UnityEngine.Serialization;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class CharacterUIController : MonoBehaviour
+public class CharacterUI : MonoBehaviour
 {
     [SerializeField]
     private Text m_characterNameText;
     private bool isInitialized = false;
     [SerializeField] private Scrollbar m_hp;
-    private Hero CurrentHero = null;
+    private Hero currentHero = null;
     public void Init(Hero hero)
     {
         if (hero)
@@ -19,7 +19,7 @@ public class CharacterUIController : MonoBehaviour
             m_characterNameText.text = hero.HeroData.Name;
 
             gameObject.SetActive(true);
-            CurrentHero = hero;
+            currentHero = hero;
         }
         else
         {
@@ -31,9 +31,9 @@ public class CharacterUIController : MonoBehaviour
     void Update()
     {
         if (!isInitialized) return;
-        if (CurrentHero.MaxHp != 0)
+        if (currentHero.MaxHp != 0)
         {
-            m_hp.size = CurrentHero.CurHp / CurrentHero.MaxHp;
+            m_hp.size = currentHero.CurHp / currentHero.MaxHp;
         }
         else
         {

@@ -16,6 +16,6 @@ public class LoadGame : MonoBehaviour
     }
     public void Jump()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }
