@@ -4,10 +4,14 @@ using Base;
 using Scene;
 using UnityEngine;
 
-public class SceneManager : SingletonMonoBase<SceneManager>
+namespace Ele
 {
-    /// <summary>
-    /// 出生点
-    /// </summary>
-    public PointOfBirth PointOfBirth;
+   public class SceneManager : SingletonMonoBase<SceneManager>
+   {
+       /// <summary>
+       /// 出生点
+       /// </summary>
+       public PointOfBirth PointOfBirth;
+   }
+
 }
